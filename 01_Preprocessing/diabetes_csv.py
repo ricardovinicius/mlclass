@@ -14,13 +14,19 @@ from sklearn.neighbors import KNeighborsClassifier
 import requests
 
 print('\n - Lendo o arquivo com o dataset sobre diabetes')
-data = pd.read_csv('diabetes_dataset.csv')
+data = pd.read_csv("notebooks/experiment_006/diabetes-tratado-ex6.csv")
 
 # Criando X and y par ao algorítmo de aprendizagem de máquina.\
 print(' - Criando X e y para o algoritmo de aprendizagem a partir do arquivo diabetes_dataset')
 # Caso queira modificar as colunas consideradas basta algera o array a seguir.
-feature_cols = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 
-                'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age']
+feature_cols = [
+    "Pregnancies",
+    "Glucose",
+    "BloodPressure",
+    "BMI",
+    "DiabetesPedigreeFunction",
+    "Age",
+]
 X = data[feature_cols]
 y = data.Outcome
 
@@ -31,7 +37,7 @@ neigh.fit(X, y)
 
 #realizando previsões com o arquivo de
 print(' - Aplicando modelo e enviando para o servidor')
-data_app = pd.read_csv('diabetes_app.csv')
+data_app = pd.read_csv("notebooks/experiment_006/diabetes_app-tratado-ex6.csv")
 data_app = data_app[feature_cols]
 y_pred = neigh.predict(data_app)
 
@@ -39,7 +45,7 @@ y_pred = neigh.predict(data_app)
 URL = "https://aydanomachado.com/mlclass/01_Preprocessing.php"
 
 #TODO Substituir pela sua chave aqui
-DEV_KEY = "omicron"
+DEV_KEY = "Omicron"
 
 # json para ser enviado para o servidor
 data = {'dev_key':DEV_KEY,
