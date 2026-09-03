@@ -14,7 +14,7 @@ from sklearn.neighbors import KNeighborsClassifier
 import requests
 
 print('\n - Lendo o arquivo com o dataset sobre diabetes')
-data = pd.read_csv("notebooks/experiment_012/diabetes-tratado-ex12.csv")
+data = pd.read_csv("01_Preprocessing/notebooks/experiment_014/diabetes-tratado-ex14.csv")
 
 # Criando X and y par ao algorítmo de aprendizagem de máquina.\
 print(' - Criando X e y para o algoritmo de aprendizagem a partir do arquivo diabetes_dataset')
@@ -37,7 +37,7 @@ neigh.fit(X, y)
 
 #realizando previsões com o arquivo de
 print(' - Aplicando modelo e enviando para o servidor')
-data_app = pd.read_csv("notebooks/experiment_012/diabetes_app-tratado-ex12.csv")
+data_app = pd.read_csv("01_Preprocessing/notebooks/experiment_014/diabetes_app-tratado-ex14.csv")
 data_app = data_app[feature_cols]
 y_pred = neigh.predict(data_app)
 
